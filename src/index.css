@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-canvas: #F7F8F5;
+  --color-surface: #FFFFFF;
+  --color-subtle: #EFF3EE;
+  --color-hairline: #DDE3DC;
+  --color-ink: #17211A;
+  --color-muted: #4D5E53;
+  --color-topo: #1B5E20;
+  --color-topo-hover: #144818;
+  --color-azimuth: #0B5CAD;
+  --color-warn: #B45309;
+  --color-err: #B91C1C;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom Leaflet Technical Styling */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background-color: #E8ECE7;
+}
+
+.leaflet-tooltip.topo-edge-label {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #CBD5CB;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(23, 33, 26, 0.12);
+  color: #17211A;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.25;
+  padding: 2px 6px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.leaflet-tooltip.topo-edge-label::before {
+  display: none;
+}
+
+.leaflet-tooltip.topo-edge-label-active {
+  background: #1B5E20;
+  border-color: #144818;
+  color: #FFFFFF;
+}
+
+.topo-vertex-icon {
+  background: transparent;
+  border: none;
+}
+
+.topo-midpoint-icon {
+  background: transparent;
+  border: none;
+}
+
+.katex {
+  font-size: 0.98em;
+}
+
+.katex-display {
+  margin: 0.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.15rem 0;
+}
+
+/* Print / PDF Report Mode */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #17211A !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-break-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-force-open {
+    display: block !important;
+  }
+}

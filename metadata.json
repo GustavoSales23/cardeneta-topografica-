@@ -1,0 +1,6 @@
+{
+  "name": "Caderneta Planimétrica — Topografia Interativa",
+  "description": "Bancada interativa de levantamento planimétrico com mapa aberto (satélite/OSM), croqui cartesiano, planilha sincronizada, cálculo automático de rumos, azimutes, compensação de Bowditch, área de Gauss em 7 etapas e modo treino guiado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
